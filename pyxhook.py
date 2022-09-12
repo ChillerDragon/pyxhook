@@ -305,7 +305,7 @@ class HookManager(threading.Thread):
     def lookup_keysym(self, keysym):
         for name in dir(XK):
             if name.startswith("XK_") and getattr(XK, name) == keysym:
-                return name.lstrip("XK_")
+                return name[3:]
         return "[{}]".format(keysym)
 
     def asciivalue(self, keysym):
